@@ -1,2 +1,3 @@
 # allevaite
+![Logo](logo_allevaite.PNG)
 Repository for allevaite ....
