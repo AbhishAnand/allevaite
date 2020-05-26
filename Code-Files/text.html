@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +9,72 @@
     <title>TEXTEDITOR</title>
     <script src="https://use.fontawesome.com/ca3dd77566.js"></script>
 </head>
-<body onload="enableEditMode();"style="background:skyblue;">
-    <div style="background:skyblue;">
+
+<style>
+  html{
+    background-color: aliceblue;
+    scroll-behavior: smooth;
+  }
+
+  body{
+    margin: 0px;
+  }
+
+  iframe{
+    border-style:groove;
+    width: 100%;
+    height: 50vh;
+    border-radius: 5px;
+  }
+
+  button{
+    margin-right: 10px;
+  }
+
+  #lhs{
+    float:left;
+    width: 20%;
+    height: 100vh;
+    background-color: #202020;
+    /* height:auto; */
+  }
+
+  #rhs{
+    float: left;
+    margin: 10px 0px 0px 50px;
+    width: auto;
+    /* height:auto; */
+  }
+
+  #main_buttons{
+    float: right;
+    margin-top: 10px;
+  }
+
+  #submit_btn{
+    background-color: #E13E3E;
+    color: white;
+    padding: 10px 40px 10px 40px;
+    border: #E13E3E solid 2px;
+    border-radius: 10px;
+  }
+
+  #reset_btn{
+    color: #E13E3E;
+    padding: 10px 40px 10px 40px;
+    border: #E13E3E solid 2px;
+    border-radius: 10px;
+  }
+
+</style>
+
+<body onload="enableEditMode()">
+
+  <div id = "lhs">
+  </div>
+
+  <div id = "rhs">
+    <div>
       <button onclick="execCmd('bold');"><i class="fa fa-bold"></i></button>
       <button onclick="execCmd('italic');"><i class="fa fa-italic"></i></button>
       <button onclick="execCmd('underline');"><i class="fa fa-underline"></i></button>
@@ -28,6 +94,7 @@
       <button onclick="execCmd('insertUnorderedList');"><i class="fa fa-list-ul"></i></button>
       <button onclick="execCmd('insertOrderedList');"><i class="fa fa-list-ol"></i></button>
       <button onclick="execCmd('insertParagraph');"><i class="fa fa-paragraph"></i></button>
+
       <select  onchange="execCommandWithArg('formatBlock', this.value);">
         <option value="H1">H1</option>
         <option value="H2">H2</option>
@@ -36,12 +103,15 @@
         <option value="H5">H5</option>
         <option value="H6">H6</option>
       </select>
+
       <button onclick="execCmd('insertHorizontalRule');">HR</button>
       <button onclick="execCommandWithArg('createLink', prompt('Enter a URL', 'http://'));"><i class="fa fa-link"></i></button>
       <button onclick="execCmd('unlink');"><i class="fa fa-unlink"></i></button>
       <button onclick="toggleSource();"><i class="fa fa-code"></i></button>
       <button onclick="toggleEdit();">Toggle Edit</button>
-      <br>
+
+      <br><br>
+
       <select  onchange="execCommandWithArg('fontName', this.value);">
         <option value="Arial">Arial </option>
         <option value="Comic Sans MS">Comic Sans MS</option>
@@ -51,6 +121,7 @@
         <option value="Times New Roman">Times New Roman</option>
         <option value="Verdana">Verdana</option>
       </select>
+
       <select  onchange="execCommandWithArg('fontSize', this.value);">
         <option value="1">1 </option>
         <option value="2">2</option>
@@ -60,13 +131,30 @@
         <option value="6">6</option>
         <option value="7">7</option>
       </select>
-      Fore Color: <input type="color" onchange="execCommandWithArg('foreColor', this.value);">
-      Background: <input type="color" onchange="execCommandWithArg('hiliteColor', this.value);">
-      <button onclick="execCommandWithArg('insertImage', prompt('Enter The Image URL',''));"><i class="fa fa-file-imange-o"></i></button>
+
+      Fore Color:
+      <input type="color" onchange="execCommandWithArg('foreColor', this.value);">
+
+      Background:
+      <input type="color" onchange="execCommandWithArg('hiliteColor', this.value);">
+
+      <button onclick="execCommandWithArg('insertImage', prompt('Enter The Image URL',''));"><i class="fa fa-file-imange-o"></i>Add image</button>
       <button onclick="execCmd('selectAll');">Select All</button>
 
     </div><br>
-    <iframe name="richTextField" style="width: 1000px; height: 500px;"></iframe>
+
+    <!-- MAIN EDITOR -->
+      <iframe name="richTextField">
+      </iframe>
+    <!-- MAIN EDITOR -->
+
+    <div id = "main_buttons">
+      <button id = "submit_btn" type="submit">SUBMIT</button>
+      <button id = "reset_btn" type="reset">RESET</button>
+    </div>
+
+  </div>
+
      <script type="text/javascript">
      
      var showingSourceCode = false;
@@ -83,10 +171,10 @@
      }
      function toggleSource () {
        if(showingSourceCode){
-        richTextField.document.getElementsByTagName('body')[0].innerHTML =   richTextField.document.getElementsByTagName('body')[0].textContent;
+        richTextField.document.getElementsByTagName('body')[0].innerHTML = richTextField.document.getElementsByTagName('body')[0].textContent;
         showingSourceCode = false;
        }else{
-        richTextField.document.getElementsByTagName('body')[0].textContent =   richTextField.document.getElementsByTagName('body')[0].innerHTML;
+        richTextField.document.getElementsByTagName('body')[0].textContent = richTextField.document.getElementsByTagName('body')[0].innerHTML;
         showingSourceCode = true;
        }
      } 
@@ -101,5 +189,7 @@
      }
 
      </script>
+
 </body>
+
 </html>
