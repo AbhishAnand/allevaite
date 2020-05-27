@@ -1,0 +1,19 @@
+Hi guys , the following folder contains seperate .sav, .pkl and .ipynb(notebooks) for all the three algorithms that is performed on the data.
+
+If you want to access the .ipynb notebook kindly open it online on google colab.
+
+Follow this link for colab tutorial:
+https://www.tutorialspoint.com/google_colab/index.htm
+
+
+As of, 
+28-05-2020 1.26 AM
+
+Kindly note that pipelining was tried on countvectorizer and the algorithms by referring to the documentation , but it didnt proove of much a help. I suggest kindly look for a different way to handle backend or find some efficient solution to this issue Abhish Anand, as i could n't find a way to do it.
+
+Find the documentation for pipeline(the one is referred):
+https://scikitlearn.org/stable/auto_examples/model_selection/grid_search_text_feature_extraction.html
+
+
+- Sidharth
+
