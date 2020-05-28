@@ -1,0 +1,9 @@
+import re
+
+msg = '[\'General Religion\\n\', \'\\n\', \'I enjoy hearing about the deaths of idiots from "faith healing" congregations of the world, if their death is caused by treatable illnesses. Hey, there needs to be some method of ridding the worlds of stupid people. Get em young before they can breed! That\\\'s what I say. I\\\'m being serious. My confession is, I know religion is the worst disease this world has to offer. The end.\']'
+
+print("Original:\n" + msg + "\n")
+
+clean = re.sub(r"\\[a-z]|\\|\'|\[|\]", '', msg)
+
+print("Result:\n" + clean)
