@@ -2,7 +2,7 @@
 
 
 
-*Alleviate* aims to a companion to soothe all your worries so that you can relax and free yourselves from burdens and help you lead a peaceful life .
+The Project *Alleviate* aims to a companion to soothe all your worries so that you can relax and free yourselves from burdens and help you lead a peaceful life .
 
 ## Table of contents
 * [Intro ](#introduction)
